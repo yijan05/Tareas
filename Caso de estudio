@@ -1,0 +1,81 @@
+lass FiguraGeometrica:
+    def calcular_area(self):
+        pass
+
+    def calcular_perimetro(self):
+        pass
+
+#Triangulo
+
+class Triangulo(FiguraGeometrica):
+    def __init__(self, base, altura, lado1, lado2):
+        self.base = base
+        self.altura = altura
+        self.lado1 = lado1
+        self.lado2 = lado2
+
+    def calcular_area(self):
+        return (self.base * self.altura) / 2
+
+    def calcular_perimetro(self):
+        return self.base + self.lado1 + self.lado2
+#Rectangulo
+
+class Rectangulo(FiguraGeometrica):
+    def __init__(self, base, altura):
+        self.base = base
+        self.altura = altura
+
+    def calcular_area(self):
+        return self.base * self.altura
+
+    def calcular_perimetro(self):
+        return 2 * (self.base + self.altura)
+
+#circulo
+
+class Circulo(FiguraGeometrica):
+    def __init__(self, radio):
+        self.radio = radio
+
+    def calcular_area(self):
+        return 3.1416 * self.radio ** 2
+
+    def calcular_perimetro(self):
+        return 2 * 3.1416 * self.radio
+
+def menu():
+    while True:
+        print("1. Triángulo")
+        print("2. Rectángulo")
+        print("3. Círculo")
+        print("4. Salir")
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            base = float(input("Ingrese la base del triángulo: "))
+            altura = float(input("Ingrese la altura del triángulo: "))
+            lado1 = float(input("Ingrese el primer lado del triángulo: "))
+            lado2 = float(input("Ingrese el segundo lado del triángulo: "))
+            triangulo = Triangulo(base, altura, lado1, lado2)
+            print("Área del triángulo:", triangulo.calcular_area())
+            print("Perímetro del triángulo:", triangulo.calcular_perimetro())
+        elif opcion == "2":
+            base = float(input("Ingrese la base del rectángulo: "))
+            altura = float(input("Ingrese la altura del rectángulo: "))
+            rectangulo = Rectangulo(base, altura)
+            print("Área del rectángulo:", rectangulo.calcular_area())
+            print("Perímetro del rectángulo:", rectangulo.calcular_perimetro())
+        elif opcion == "3":
+            radio = float(input("Ingrese el radio del círculo: "))
+            circulo = Circulo(radio)
+            print("Área del círculo:", circulo.calcular_area())
+            print("Perímetro del círculo:", circulo.calcular_perimetro())
+        elif opcion == "4":
+            print("Has decidido salir")
+            break
+        else:
+            print("Opción no válida. Inténtelo de nuevo.")
+
+if __name__ == "__main__":
+    menu()
